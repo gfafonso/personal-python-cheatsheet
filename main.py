@@ -2,7 +2,6 @@
 
 import importlib
 import re
-import pygraphviz
 import json
 import os
 import requests
@@ -196,6 +195,7 @@ def format_output():
     with open('summary.log', 'w') as myfile:
         myfile.write(finalstring)
 
+# -------------------------------------- GITHUB RELATED ---------------------------------- # 
 
 def parse():
     variable = "PM: @project\r\nUsers: @user1, @user2\r\nProject description:\r\n"
@@ -210,35 +210,33 @@ def parse():
     print({'pm': re.sub('@', '', a), 'users': users})
 
 
-def create_team():
-    api_url = "https://api.github.com/orgs/CEG-GUI-Sandbox/teams"
-    headers = {"Authorization": "token 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",
-               "Accept": "application/vnd.github.v3+json"}
-    myobj = {"name": "test-py", "description": "A great team", "permission": "push",
-             "privacy": "closed", "maintainers": m}
-    print(myobj)
-    response = requests.post(api_url, headers=headers, data=json.dumps(myobj))
-    result = response.json()
-    print(result)
 
 def create_project():
     api_url = "https://api.github.com/orgs/CEG-GUI-Sandbox/projects"
-    headers = {"Authorization": "token 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",
+    headers = {"Authorization": "token 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",
                "Accept": "application/vnd.github.v3+json"}
-    myobj = {"name":"test-py-project"}
-    response = requests.post(api_url, headers=headers, data=json.dumps(myobj))
+    my_project = {"name":title}
+    response = requests.post(api_url, headers=headers, data=json.dumps(my_project))
     result = response.json()
-    project_id = result['id']
-    print(result)
+    return result['id']
 
-def add_project_to_team():
-    api_url = f"https://api.github.com/orgs/CEG-GUI-Sandbox/teams/test-py/projects/14481156"
+def create_team():
+    api_url = "https://api.github.com/orgs/CEG-GUI-Sandbox/teams"
+    headers = {"Authorization": "token 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",
+               "Accept": "application/vnd.github.v3+json"}
+    my_team = {"name": title+"-TEAM", "permission": "push",
+             "privacy": "secret"}
+    requests.post(api_url, headers=headers, data=json.dumps(my_team))
 
-    headers = {"Authorization": "token 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",
+def add_project_to_team(project_id):
+    api_url = f"https://api.github.com/orgs/CEG-GUI-Sandbox/teams/{title}-TEAM/projects/{project_id}"
+    headers = {"Authorization": "token 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",
                "Accept": "application/vnd.github.v3+json"}
     response = requests.put(api_url, headers=headers)
+    
+    if response.status_code == 404:
+        raise Exception(f"Could not add {title}-TEAM to {title}")
 
-    print(response.json())
 
 if __name__ == "__main__":
     # main()
@@ -250,7 +248,7 @@ if __name__ == "__main__":
     m = ['gfafonso']
     project_id = ''
     team_id = ''
-    title = '1'
-    #create_team()
-    #create_project()
-    add_project_to_team()
+    title = 'test-py4'
+    create_team()
+    id = create_project()
+    add_project_to_team(id)

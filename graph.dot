@@ -1,0 +1,18 @@
+digraph {
+"/Users/jpteixeira/Projects/Live-AWS/CEG-IaC-Live-AWS/hyper/prod/ci-prod/us-west-2/dms/certificate" ;
+"/Users/jpteixeira/Projects/Live-AWS/CEG-IaC-Live-AWS/hyper/prod/ci-prod/us-west-2/dms/source-endpoint" ;
+"/Users/jpteixeira/Projects/Live-AWS/CEG-IaC-Live-AWS/hyper/prod/ci-prod/us-west-2/dms/source-endpoint" -> "/Users/jpteixeira/Projects/Live-AWS/CEG-IaC-Live-AWS/hyper/prod/ci-prod/us-west-2/dms/vpce-source-db";
+"/Users/jpteixeira/Projects/Live-AWS/CEG-IaC-Live-AWS/hyper/prod/ci-prod/us-west-2/dms/source-endpoint" -> "/Users/jpteixeira/Projects/Live-AWS/CEG-IaC-Live-AWS/hyper/prod/ci-prod/us-west-2/dms/certificate";
+"/Users/jpteixeira/Projects/Live-AWS/CEG-IaC-Live-AWS/hyper/prod/ci-prod/us-west-2/dms/vpce-source-db" ;
+"/Users/jpteixeira/Projects/Live-AWS/CEG-IaC-Live-AWS/hyper/prod/ci-prod/us-west-2/dms/vpce-source-db" -> "/Users/jpteixeira/Projects/Live-AWS/CEG-IaC-Live-AWS/hyper/prod/ci-prod/us-west-2/networking/vpc";
+"/Users/jpteixeira/Projects/Live-AWS/CEG-IaC-Live-AWS/hyper/prod/ci-prod/us-west-2/dms/vpce-source-db" -> "/Users/jpteixeira/Projects/Live-AWS/CEG-IaC-Live-AWS/hyper/prod/ci-prod/us-west-2/networking/vpc-subnet/protected/protected-1-A";
+"/Users/jpteixeira/Projects/Live-AWS/CEG-IaC-Live-AWS/hyper/prod/ci-prod/us-west-2/dms/vpce-source-db" -> "/Users/jpteixeira/Projects/Live-AWS/CEG-IaC-Live-AWS/hyper/prod/ci-prod/us-west-2/networking/vpc-subnet/protected/protected-2-B";
+"/Users/jpteixeira/Projects/Live-AWS/CEG-IaC-Live-AWS/hyper/prod/ci-prod/us-west-2/dms/vpce-source-db" -> "/Users/jpteixeira/Projects/Live-AWS/CEG-IaC-Live-AWS/hyper/prod/ci-prod/us-west-2/networking/vpce-source-db-sg";
+"/Users/jpteixeira/Projects/Live-AWS/CEG-IaC-Live-AWS/hyper/prod/ci-prod/us-west-2/networking/vpc" ;
+"/Users/jpteixeira/Projects/Live-AWS/CEG-IaC-Live-AWS/hyper/prod/ci-prod/us-west-2/networking/vpc-subnet/protected/protected-1-A" ;
+"/Users/jpteixeira/Projects/Live-AWS/CEG-IaC-Live-AWS/hyper/prod/ci-prod/us-west-2/networking/vpc-subnet/protected/protected-1-A" -> "/Users/jpteixeira/Projects/Live-AWS/CEG-IaC-Live-AWS/hyper/prod/ci-prod/us-west-2/networking/vpc";
+"/Users/jpteixeira/Projects/Live-AWS/CEG-IaC-Live-AWS/hyper/prod/ci-prod/us-west-2/networking/vpc-subnet/protected/protected-2-B" ;
+"/Users/jpteixeira/Projects/Live-AWS/CEG-IaC-Live-AWS/hyper/prod/ci-prod/us-west-2/networking/vpc-subnet/protected/protected-2-B" -> "/Users/jpteixeira/Projects/Live-AWS/CEG-IaC-Live-AWS/hyper/prod/ci-prod/us-west-2/networking/vpc";
+"/Users/jpteixeira/Projects/Live-AWS/CEG-IaC-Live-AWS/hyper/prod/ci-prod/us-west-2/networking/vpce-source-db-sg" ;
+"/Users/jpteixeira/Projects/Live-AWS/CEG-IaC-Live-AWS/hyper/prod/ci-prod/us-west-2/networking/vpce-source-db-sg" -> "/Users/jpteixeira/Projects/Live-AWS/CEG-IaC-Live-AWS/hyper/prod/ci-prod/us-west-2/networking/vpc";
+}

@@ -1,0 +1,77 @@
+Terraform will perform the following actions:
+
+  # aws_vpc.vpc will be created
+  + resource "aws_vpc" "vpc" {
+      + arn                              = (known after apply)
+      + assign_generated_ipv6_cidr_block = false
+      + cidr_block                       = "10.0.0.0/16"
+      + default_network_acl_id           = (known after apply)
+      + default_route_table_id           = (known after apply)
+      + default_security_group_id        = (known after apply)
+      + dhcp_options_id                  = (known after apply)
+      + enable_classiclink               = (known after apply)
+      + enable_classiclink_dns_support   = (known after apply)
+      + enable_dns_hostnames             = false
+      + enable_dns_support               = true
+      + id                               = (known after apply)
+      + instance_tenancy                 = "default"
+      + ipv6_association_id              = (known after apply)
+      + ipv6_cidr_block                  = (known after apply)
+      + main_route_table_id              = (known after apply)
+      + owner_id                         = (known after apply)
+      + tags                             = {
+          + "Environment"           = "PROD"
+          + "Name"                  = "cvt-usw2-ngfw-prod-vpc"
+          + "cvt:application-owner" = "CvT NetOps Team"
+          + "cvt:codename"          = "ngfw"
+          + "cvt:cost-center"       = "TBD"
+          + "cvt:environment"       = "prod"
+          + "cvt:hosting-owner"     = "Cloud Engineering Group"
+          + "cvt:owner"             = "Julian Foot"
+          + "cvt:project"           = "Next-Generation Firewall Virtual Appliance - FortiGate-VM active-passive HA"
+          + "cvt:terraform"         = "Yes"
+          + "cvt:validated-system"  = "No"
+        }
+      + tags_all                         = {
+          + "Environment"           = "PROD"
+          + "Name"                  = "cvt-usw2-ngfw-prod-vpc"
+          + "cvt:application-owner" = "CvT NetOps Team"
+          + "cvt:codename"          = "ngfw"
+          + "cvt:cost-center"       = "TBD"
+          + "cvt:environment"       = "prod"
+          + "cvt:hosting-owner"     = "Cloud Engineering Group"
+          + "cvt:owner"             = "Julian Foot"
+          + "cvt:project"           = "Next-Generation Firewall Virtual Appliance - FortiGate-VM active-passive HA"
+          + "cvt:terraform"         = "Yes"
+          + "cvt:validated-system"  = "No"
+        }
+    }
+
+Plan: 1 to add, 0 to change, 0 to destroy.
+
+Changes to Outputs:
+  + cidr_block = "10.0.0.0/16"
+  + id         = (known after apply)
+  + name       = "cvt-usw2-ngfw-prod-vpc"
+  + vpc        = {
+      + id   = (known after apply)
+      + name = "cvt-usw2-ngfw-prod-vpc"
+    }
+
+Warning: Experimental feature "module_variable_optional_attrs" is active
+
+  on main.tf line 32, in terraform:
+  32:   experiments      = [module_variable_optional_attrs]
+
+Experimental features are subject to breaking changes in future minor or
+patch releases, based on feedback.
+
+If you have feedback on the design of this feature, please open a GitHub
+issue to discuss it.
+
+─────────────────────────────────────────────────────────────────────────────
+
+Saved the plan to: vpc-planfile
+
+To perform exactly these actions, run the following command to apply:
+    terraform apply "vpc-planfile"

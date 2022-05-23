@@ -232,7 +232,7 @@ def add_project_to_team(project_id):
     api_url = f"https://api.github.com/orgs/CEG-GUI-Sandbox/teams/{title}-TEAM/projects/{project_id}"
     headers = {"Authorization": "token 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",
                "Accept": "application/vnd.github.v3+json"}
-    response = requests.put(api_url, headers=headers)
+    response = requests.put(api_url, headers=headers)s
     
     if response.status_code == 404:
         raise Exception(f"Could not add {title}-TEAM to {title}")

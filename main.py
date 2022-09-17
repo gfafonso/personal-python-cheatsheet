@@ -36,7 +36,8 @@ def main():
         # print(ordered)
         # print(filtered)
 
-        filtered.append({'name': LAST_FILE, 'value': 1000})
+        filtered.append({'name': LAST_FILE, 'value': 10032904230})
+        print("oweiowiewo")
         try:
             myfile.truncate(0)
             myfile.write(f"FILES={paths.FILES + new_list}\n")
